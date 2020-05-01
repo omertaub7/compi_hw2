@@ -66,10 +66,10 @@
 
     #include <iostream>
     using namespace std;
-
+    #include "source.hpp"
     #define YYSTYPE Node*
-    //int yylex();
-    //void yyerror(const char*);
+    extern int yylex();
+    void yyerror(const char*);
 
 #line 75 "parser.tab.cpp" /* yacc.c:339  */
 
@@ -1438,3 +1438,11 @@ yyreturn:
 #line 19 "parser.ypp" /* yacc.c:1906  */
 
 /*Cpp functions*/
+void yyerror(const char*) {
+    cout << "syntax error" << endl;
+}
+
+int main() {
+    return yyparse();
+}
+
