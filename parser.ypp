@@ -1,1 +1,17 @@
-/* this is a small analyzer */
+%{
+    #include <iostream>
+    using namespace std;
+
+    #define YYSTYPE Node*
+    int yylex();
+    void yyerror(const char*);
+%}
+
+
+
+
+%%
+/*Rules*/
+
+%%
+/*Cpp functions*/
