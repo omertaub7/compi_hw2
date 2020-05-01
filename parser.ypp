@@ -3,15 +3,18 @@
     using namespace std;
 
     #define YYSTYPE Node*
-    int yylex();
-    void yyerror(const char*);
+    //int yylex();
+    //void yyerror(const char*);
 %}
 
-
-
+%token RELOP
+%token NUM
 
 %%
-/*Rules*/
-
+S:      A   {printf("S to A\n");}
+;
+A:      NUM {printf("NUM mm\n");}
+    |   RELOP {printf("RELOP\n");}
+;
 %%
 /*Cpp functions*/
