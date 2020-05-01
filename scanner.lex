@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "output.hpp"
-#include "source.tab.hpp"
+#include "parser.tab.hpp"
 %}
 
 %option yylineno
