@@ -1,10 +1,15 @@
 %{
-    #include <iostream>
-    using namespace std;
-    #include "source.hpp"
-    #define YYSTYPE Node*
-    extern int yylex();
-    void yyerror(const char*);
+
+#include <iostream>
+#include "lex.yy.c"
+using namespace std;
+
+void yyerror(const char*);
+
+/*#include "source.hpp"*/
+/*#define YYSTYPE Node**/
+/*extern int yylex();*/
+
 %}
 
 
