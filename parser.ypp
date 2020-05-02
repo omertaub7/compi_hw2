@@ -7,7 +7,6 @@
     void yyerror(const char*);
 %}
 
-%option yylineno
 
 %token VOID
 %token INT
