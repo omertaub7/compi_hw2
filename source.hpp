@@ -1,3 +1,4 @@
+/*
 #include "output.hpp"
 
 typedef struct {
@@ -15,3 +16,4 @@ class Realop : public Node {
         return "REALOP";
     }
 };
+*/
