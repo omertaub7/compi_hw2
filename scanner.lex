@@ -45,7 +45,7 @@ continue                    	{return CONTINUE;}
 \"([^\n\r\"\\]|\\[rnt"\\])+\" 	{return STRING;}
 [\t\n\r ]                   	; 
 \/\/[^\r\n]*[\r|\n|\r\n]?     	;
-.                           	{output::errorLex(yylineno); exit(-1)};
+.                           	{output::errorLex(yylineno); exit(-1);};
 
 
 %%
