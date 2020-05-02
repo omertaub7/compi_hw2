@@ -2,13 +2,14 @@
 
 #include <iostream>
 #include "output.hpp"
-//#include "lex.yy.c"
+
+//#include "source.hpp"
+//#define YYSTYPE Node*
+
 using namespace std;
 
 void yyerror(const char*);
 
-//#include "source.hpp"
-//#define YYSTYPE Node*
 extern int yylex();
 extern int yylineno;
 
@@ -113,6 +114,7 @@ Exp:			LPAREN Exp RPAREN {output::printProductionRule(34);}
 
 void yyerror(const char* msg) {
      output::errorSyn(yylineno);
+	 exit(-1);
 }
 
 int main() {
