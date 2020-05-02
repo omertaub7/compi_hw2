@@ -1,14 +1,14 @@
 %{
 
 #include <iostream>
-#include "lex.yy.c"
+//#include "lex.yy.c"
 using namespace std;
 
 void yyerror(const char*);
 
-/*#include "source.hpp"*/
-/*#define YYSTYPE Node**/
-/*extern int yylex();*/
+//#include "source.hpp"
+//#define YYSTYPE Node*
+extern int yylex();
 
 %}
 
