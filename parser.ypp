@@ -21,8 +21,8 @@ extern int yylineno;
 %token BYTE
 %token B
 %token BOOL
-%token AND
-%token OR
+%left AND
+%left OR
 %token NOT
 %token TRUE
 %token FALSE
@@ -34,15 +34,15 @@ extern int yylineno;
 %token CONTINUE
 %token SC
 %token COMMA
-%token LPAREN
-%token RPAREN
+%token NUM
+%left LPAREN
+%left RPAREN
 %token LBRACE
 %token RBRACE
-%token ASSIGN
-%token RELOP
-%token BINOP
+%right ASSIGN
+%nonassoc RELOP
+%left BINOP
 %token ID
-%token NUM
 %token STRING
 
 %%
@@ -114,7 +114,7 @@ Exp:			LPAREN Exp RPAREN {output::printProductionRule(34);}
 
 void yyerror(const char* msg) {
      output::errorSyn(yylineno);
-	 exit(-1);
+	 exit(0);
 }
 
 int main() {
