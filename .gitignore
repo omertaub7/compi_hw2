@@ -1,0 +1,7 @@
+moshe_tests/*
+lex.yy.c
+parser.tab.*
+test_dir/*
+*.out
+
+

@@ -38,8 +38,12 @@ continue                    	{return CONTINUE;}
 \{                          	{return LBRACE;}
 \}                          	{return RBRACE;}
 =                           	{return ASSIGN;}
-(==|!=|<|>|<=|>=)           	{return RELOP;}
-(\+|-|\*|\/)               	 	{return BINOP;}
+(==|!=)                         {return EQUALOP;}
+(<|>|<=|>=)                    	{return RELOP;}
+\+                              {return PLUS;}
+-                               {return MINUS;}
+\*                              {return MUL;}
+\/                         	 	{return DIV;}
 [a-zA-Z][a-zA-Z0-9]*        	{return ID;}
 0|[1-9][0-9]*               	{return NUM;}
 \"([^\n\r\"\\]|\\[rnt"\\])+\" 	{return STRING;}

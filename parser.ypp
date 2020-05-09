@@ -15,17 +15,17 @@ extern int yylineno;
 
 %}
 
-
+// normal tokens
 %token VOID
 %token INT
+%token STRING
 %token BYTE
 %token B
 %token BOOL
-%left AND
-%left OR
 %token NOT
 %token TRUE
 %token FALSE
+%token NUM
 %token RETURN
 %token IF
 %token ELSE
@@ -34,16 +34,30 @@ extern int yylineno;
 %token CONTINUE
 %token SC
 %token COMMA
-%token NUM
-%left LPAREN
-%left RPAREN
 %token LBRACE
 %token RBRACE
-%right ASSIGN
-%nonassoc RELOP
-%left BINOP
 %token ID
-%token STRING
+
+// associative tokens, from low priority to high priority
+%right ASSIGN
+
+%left OR
+%left AND
+// TODO: change all occurances of RELOP to RELOP + EQUALOP
+%left EQUALOP
+%nonassoc RELOP
+
+// TODO: change all occurances of plus,minus,div,mul to BINOP
+%left PLUS
+%left MINUS
+
+%left DIV
+%left MUL
+
+%left LPAREN
+%left RPAREN
+
+
 
 %%
 Program: 		Funcs {output::printProductionRule(1);}
@@ -96,7 +110,10 @@ Type:			INT {output::printProductionRule(31);}
 			|	BOOL {output::printProductionRule(33);}
 ;
 Exp:			LPAREN Exp RPAREN {output::printProductionRule(34);}
-			|	Exp BINOP Exp {output::printProductionRule(35);}
+			|	Exp PLUS Exp {output::printProductionRule(35);}
+			|	Exp MINUS Exp {output::printProductionRule(35);}
+			|	Exp MUL Exp {output::printProductionRule(35);}
+			|	Exp DIV Exp {output::printProductionRule(35);}
 			|	ID {output::printProductionRule(36);}
 			|	Call {output::printProductionRule(37);}
 			|	NUM {output::printProductionRule(38);}
@@ -108,6 +125,7 @@ Exp:			LPAREN Exp RPAREN {output::printProductionRule(34);}
 			|	Exp AND Exp {output::printProductionRule(44);}
 			|	Exp OR Exp {output::printProductionRule(45);}
 			|	Exp RELOP Exp {output::printProductionRule(46);}
+			|	Exp EQUALOP Exp {output::printProductionRule(46);}
 ;
 
 %%
