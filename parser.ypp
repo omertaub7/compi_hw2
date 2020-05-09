@@ -53,10 +53,6 @@ extern int yylineno;
 
 %left NOT
 
-%left DIV MUL
-
-//%left LPAREN
-//%left RPAREN
 %token LPAREN
 %token RPAREN
 
