@@ -49,12 +49,9 @@ extern int yylineno;
 
 // TODO: change all occurances of plus,minus,div,mul to BINOP
 %left PLUS MINUS
-<<<<<<< HEAD
 %left DIV MUL
 
 %left NOT
-=======
->>>>>>> 657df94fdefeee097cf526b7a313503436f26463
 
 %left DIV MUL
 
