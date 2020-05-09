@@ -38,6 +38,7 @@ extern int yylineno;
 %token RBRACE
 %token ID
 
+
 // associative tokens, from low priority to high priority
 %right ASSIGN
 
@@ -48,15 +49,14 @@ extern int yylineno;
 %nonassoc RELOP
 
 // TODO: change all occurances of plus,minus,div,mul to BINOP
-%left PLUS
-%left MINUS
+%left PLUS MINUS
 
-%left DIV
-%left MUL
+%left DIV MUL
 
-%left LPAREN
-%left RPAREN
-
+//%left LPAREN
+//%left RPAREN
+%token LPAREN
+%token RPAREN
 
 
 %%
