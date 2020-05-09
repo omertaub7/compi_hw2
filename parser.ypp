@@ -22,13 +22,12 @@ extern int yylineno;
 %token BYTE
 %token B
 %token BOOL
-%token NOT
 %token TRUE
 %token FALSE
 %token NUM
 %token RETURN
-%token IF
 %token ELSE
+%token IF
 %token WHILE
 %token BREAK
 %token CONTINUE
@@ -48,11 +47,10 @@ extern int yylineno;
 %nonassoc RELOP
 
 // TODO: change all occurances of plus,minus,div,mul to BINOP
-%left PLUS
-%left MINUS
+%left PLUS MINUS
+%left DIV MUL
 
-%left DIV
-%left MUL
+%left NOT
 
 %left LPAREN
 %left RPAREN
@@ -90,12 +88,12 @@ Statement:		LBRACE Statements RBRACE {output::printProductionRule(14);}
 			|	Call SC {output::printProductionRule(18);}
 			|	RETURN SC {output::printProductionRule(19);}
 			|	RETURN Exp SC {output::printProductionRule(20);}
-			|	IF LPAREN Exp RPAREN Statement {output::printProductionRule(21);}
 			|	IF LPAREN Exp RPAREN Statement ELSE Statement 
 				{output::printProductionRule(22);}
-			|	WHILE LPAREN Exp RPAREN Statement {output::printProductionRule(23);}
-			|	WHILE LPAREN Exp RPAREN Statement ELSE Statement
+			|	IF LPAREN Exp RPAREN Statement {output::printProductionRule(21);}
+			|	WHILE LPAREN Exp RPAREN Statement ELSE Statement 
 				{output::printProductionRule(24);}
+			|	WHILE LPAREN Exp RPAREN Statement {output::printProductionRule(23);}
 			|	BREAK SC {output::printProductionRule(25);}
 			|	CONTINUE SC {output::printProductionRule(26);}
 ;
